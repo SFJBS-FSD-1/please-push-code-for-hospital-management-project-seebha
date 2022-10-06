@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<body>
+
+<nav class="w3-bar w3-black">
+  <a href="/" class="w3-button w3-bar-item">Home</a>
+  <a href="/contact" class="w3-button w3-bar-item">Contact</a>
+  <a href="/admin" class="w3-button w3-bar-item">Administration</a>
+
+
+</nav>
+<div align="center">
+<section class="w3-container w3-center" style="max-width:600px">
+  <h2 class="w3-wide">The Hospital Management</h2>
+  <p class="w3-opacity"><i>Hospitals are about Healing</i></p>
+</section>
+</div>
+
+<section>
+  <img class="mySlides" src="https://wallpaper.dog/large/10993876.jpg"
+        alt="No image" width="1400" height="700" style="vertical-align:middle;margin:50px 0px">
+  <img class="mySlides" src="https://wallpaper.dog/large/10993880.jpg"
+        alt="No image" width="1400" height="700" style="vertical-align:middle;margin:50px 0px">
+  <img class="mySlides" src="https://wallpaper.dog/large/10993881.jpg"
+       alt="No image" width="1400" height="700" style="vertical-align:middle;margin:50px 0px">
+</section>
+
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000);
+}
+</script>
+
+
+</body>
+</html>

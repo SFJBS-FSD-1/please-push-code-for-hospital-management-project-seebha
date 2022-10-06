@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+
+
+body{
+background-image:
+url('https://wallpaper.dog/large/5525115.jpg');
+background-attachment: fixed;
+background-size: fixed;
+}
+
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+imgcontainer {
+  text-align: center;
+  margin: 20px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 60%;
+}
+
+.container {
+  padding: 16px;
+}
+</style>
+</head>
+<body>
+
+<form action="/admin_sign_up" method="post">
+  <div class="imgcontainer">
+    <img src="https://www.starlite.news/images/general/avatar.jpg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+      <label for="user_name"><b>User Name</b></label>
+    <input type="text" placeholder="Enter your name" name="user_name" required>
+    <br><br>
+
+    <label for="user_email"><b>User Email</b></label>
+    <input type="text" placeholder="Enter email" name="email" required>
+    <br><br>
+
+    <label for="pwd"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="admin_pwd" required>
+     <br><br>
+    <button type="submit">Submit</button>
+
+  </div>
+
+
+  <div class="container" >
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+{% if data=='Exists_already' %}
+<h3>User or password already exists</h3>
+{% elif data=='new_user' %}
+<h3>Successfully added user!</h3>
+<form method="get" action="/admin">
+    <button type="submit">Login</button>
+</form>
+{% else %}
+{% endif %}
+
+</body>
+</html>

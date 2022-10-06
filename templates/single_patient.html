@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Individual_details</title>
+</head>
+<style>
+
+input[type=text], input[type=password] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+  table,th,td{
+   border:1px solid black;
+   border-collapse:collapse;
+   }
+</style>
+<body>
+<div align="center">
+  <h1>Please enter the Phone number to get,delete or update info...</h1>
+<form method="post" action="/get_single_patient">
+  <input type="text" name="phn_no" placeholder="phn_no">
+  <button type="submit">Patient</button>
+</form>
+<form method="post" action="/delete_single_patient">
+  <input type="text" name="phn_no" placeholder="phn_no">
+  <button type="submit">Delete</button>
+</form>
+<form method="post" action="/edit_patient">
+  <input type="text" name="phn_no" placeholder="phn_no">
+  <button type="submit">Update</button>
+</form>
+<form method="get" action="/back">
+  <button type="submit">Back</button>
+</form>
+</div>
+
+
+{% if data == "no_match" %}
+<h1>No such Phone number found</h1>
+{% elif data == "Deleted"%}
+<h1>Record Deleted Successfully!!</h1>
+
+{% elif data %}
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Age</th>
+    <th>Bed_type</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+  </tr>
+  <tr>
+
+    <td>{{data.user_name}}</td>
+    <td>{{data.phone_no}}</td>
+    <td>{{data.age}}</td>
+    <td>{{data.bed_type}}</td>
+    <td>{{data.address}}</td>
+    <td>{{data.state}}</td>
+    <td>{{data.city}}</td>
+
+  </tr>
+
+</table>
+{%else%}
+{% endif %}
+
+</body>
+</html>

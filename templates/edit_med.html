@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+  <style>
+     table,th,td{
+   border:1px solid black;
+   border-collapse:collapse;
+   }
+  </style>
+
+</head>
+<body>
+{% if data == "no_match" %}
+<h1>No such Medicine found</h1>
+{% elif data == "success update" %}
+<h1>Successfully updated record</h1>
+<form method="get" action="/back">
+  <button type="submit">Back</button>
+</form>
+{% elif data == "Wrong details" %}
+<h1>Please enter correct details!</h1>
+{% elif data %}
+<form action="/update_med" method="post">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+  </tr>
+  <tr>
+
+    <td><input type="text" name="med_name" placeholder={{data.medi_name}}></td>
+    <td><input type="text" name="qty" placeholder={{data.quantity}}></td>
+    <td><input type="text" name="rate" placeholder={{data.rate}}></td>
+
+  </tr>
+
+</table>
+
+<br>
+  <button type="submit">Edit</button>
+</form>
+
+{%else%}
+
+{% endif %}
+</body>
+</html>

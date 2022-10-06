@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+  <style>
+     table,th,td{
+   border:1px solid black;
+   border-collapse:collapse;
+   }
+  </style>
+
+</head>
+<body>
+{% if data == "no_match" %}
+<h1>No such Phone number found</h1>
+{% elif data == "success update" %}
+<h1>Successfully updated record</h1>
+<form method="get" action="/back">
+  <button type="submit">Back</button>
+</form>
+{% elif data == "Wrong details" %}
+<h1>Please enter correct details!</h1>
+{% elif data %}
+<form action="/edit" method="post">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Age</th>
+    <th>Bed_type</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+  </tr>
+  <tr>
+
+    <td><input type="text" name="name" placeholder={{data.user_name}}></td>
+    <td><input type="text" name="phone_no" placeholder={{data.phone_no}}></td>
+    <td><input type="text" name="age" placeholder={{data.age}}></td>
+    <td>
+      <input  type="text" list="ward_types" name="bed_type" placeholder={{data.bed_type}} required>
+    <datalist id="ward_types">
+        <option value="Out Patient">Out Patient</option>
+        <option value="General ward">General ward</option>
+        <option value="Semi Sharing">Semi Sharing</option>
+        <option value="Single">Single</option>
+    </datalist>
+    </td>
+    <td><input type="text" name="addr" placeholder={{data.address}}></td>
+    <td><input type="text" name="state" placeholder={{data.state}}></td>
+    <td><input type="text" name="city" placeholder={{data.city}}></td>
+
+  </tr>
+
+</table>
+
+<br>
+  <button type="submit">Edit</button>
+</form>
+
+{%else%}
+
+{% endif %}
+</body>
+</html>

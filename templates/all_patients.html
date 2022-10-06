@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All_Patients</title>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  table,th,td{
+   border:1px solid black;
+   border-collapse:collapse;
+   }
+
+   .btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+</style>
+<body>
+<h1>Details of Patients</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Age</th>
+    <th>Bed_type</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+
+  </tr>
+  <tr>
+    {% for name in data %}
+    <td>{{name.id}}</td>
+    <td>{{name.user_name}}</td>
+    <td>{{name.phone_no}}</td>
+    <td>{{name.age}}</td>
+    <td>{{name.bed_type}}</td>
+    <td>{{name.address}}</td>
+    <td>{{name.state}}</td>
+    <td>{{name.city}}</td>
+
+
+  </tr>
+
+  {% endfor %}
+</table>
+<br>
+ <form method="get" action="/back">
+  <button type="submit">Back</button>
+</form>
+</body>
+</html>

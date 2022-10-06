@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Individual_details</title>
+</head>
+<style>
+
+input[type=text]{
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+  table,th,td{
+   border:1px solid black;
+   border-collapse:collapse;
+   }
+</style>
+<body>
+<div align="center">
+  <h1>Please enter the Medicine name to get,delete or update info...</h1>
+<form method="post" action="/get_medi_by_name">
+  <input type="text" name="med_name" placeholder="Name">
+  <button type="submit">Medicine</button>
+</form>
+<form method="post" action="/delete_single_med">
+  <input type="text" name="med_name" placeholder="Name">
+  <button type="submit">Delete</button>
+</form>
+<form method="post" action="/edit_med">
+  <input type="text" name="med_name" placeholder="Name">
+  <button type="submit">Update</button>
+</form>
+<form method="get" action="/back">
+  <button type="submit">Back</button>
+</form>
+</div>
+
+
+{% if data == "no_match" %}
+<h1>No such Medicine found</h1>
+{% elif data == "Deleted"%}
+<h1>Record Deleted Successfully!!</h1>
+
+{% elif data %}
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+  </tr>
+  <tr>
+    <td>{{data.id}}</td>
+    <td>{{data.medi_name}}</td>
+    <td>{{data.quantity}}</td>
+    <td>{{data.rate}}</td>
+  </tr>
+
+</table>
+{%else%}
+{% endif %}
+
+</body>
+</html>

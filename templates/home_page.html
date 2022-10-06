@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Home_Page</title>
+</head>
+<body>
+<h1> Welcome to Hospital Management</h1>
+<form method="post" action="/login">
+    <input type="text" name="user_name" placeholder="Enter your name">
+    <br><br>
+    <input type="password" name="pwd" placeholder="Enter your password" >
+    <br><br>
+    <button type="submit">Login</button>
+</form>
+{% if data=='user_unidentified' %}
+<h3>User does not exists---</h3>
+{% else %}
+{% endif %}
+<br>
+<br>
+<a href="/signup">New User?</a>
+</body>
+</html>
